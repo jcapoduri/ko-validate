@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>validator</title>
+
+  <!-- Base stylesheet -->
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css">
+  <link rel="stylesheet" type="text/css" href="css/global.css">
+  
+
+  <script type="text/javascript" src="js/vendor/jquery/jquery.js"></script>
+  <script type="text/javascript" src="js/vendor/knockout/knockout.js"></script>
+  <script type="text/javascript" src="js/vendor/knockout/ko-validate.js"></script>
+  <style type="text/css">
+    input.error {
+      border: 1px solid red;
+    };
+  </style>
+</head>
+<body>
+	<div class="container">
+
+      <form class="form-signin">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <input data-bind="value: user, validate: valu" type="text" class="" placeholder="User">
+        <input data-bind="value: pass, validate: valu" type="password" class="" placeholder="Password">
+        <input data-bind="value: email, validate: valu" type="text" class="" placeholder="Email">
+        <label class="checkbox">
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+        <button class="btn btn-large btn-primary" type="submit">Sign in</button>
+      </form>
+      <pre data-bind="text: JSON.stringify(ko.toJS($data), null, 2)"></pre>
+
+    </div> <!-- /container -->
+    <script type="text/javascript">
+    	
+    	$(document).ready(function(){
+    		var loginModelView = function(data){
+    			var self = this;
+    			this.user = ko.observable("shaka");
+    			this.pass = ko.observable("password");
+          this.email = ko.observable("jcapoduri@gmail.com");
+          this.ok = ko.observable();
+    			this.valu = {
+    				user: {
+              validates: ["required", "alphanumeric"],
+              okValue: this.ok,
+              decorator: 'control-group error'
+            },
+            pass: {
+              validates: ["required", "alphanumeric"],
+              okValue: this.ok,
+              decorator: 'control-group error'
+            },
+            email: {
+              validates: ["required", "email"],
+              okValue: this.ok,
+              decorator: 'control-group error'
+            }
+    			};
+    		};
+
+    		ko.applyBindings(new loginModelView());
+    	});
+    </script>
+</body>
+</html>
