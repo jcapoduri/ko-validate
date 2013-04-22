@@ -1,0 +1,29 @@
+input.error {
+  border: 1px solid red;
+}
+
+.alertbox {
+  width: 400px;
+  left: 0;
+  right: 0;
+  margin-right: auto;
+  margin-left: auto;
+  background: white;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.alertbox .title {
+  font-weight: bold;
+}
+
+.alertbox .button {
+  width: 150px;
+  height: 30px;
+  background: green;
+  border-radius: 5px;
+}
+
+.alertbox .buttonbox .button{
+  float: left;
+}

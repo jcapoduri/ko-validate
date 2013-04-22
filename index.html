@@ -12,13 +12,10 @@
   
 
   <script type="text/javascript" src="js/vendor/jquery/jquery.js"></script>
+  <script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
+  <script type="text/javascript" src="js/vendor/jquery-plugins/jquery-alert.js"></script>
   <script type="text/javascript" src="js/vendor/knockout/knockout.js"></script>
   <script type="text/javascript" src="js/vendor/knockout/ko-validate.js"></script>
-  <style type="text/css">
-    input.error {
-      border: 1px solid red;
-    };
-  </style>
 </head>
 <body>
 	<div class="container">
@@ -65,6 +62,18 @@
     		};
 
     		ko.applyBindings(new loginModelView());
+
+        $.alert({
+          title: 'Hola',
+          body: "Hola Mundo",
+          buttons: [{
+            label: "save",
+            callback: function(){ alert("Hola Mundo"); }
+          },{
+            label: "cancel",
+            callback: function(){ alert("Hola Mundo"); }
+          }]
+        })
     	});
     </script>
 </body>

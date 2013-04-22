@@ -109,8 +109,7 @@
 	        	if(validator.okValue) validator.okValue(valid);
 
 	        	if (validator.decorator) {
-	        		debugger;
-	        		if (typeof validator.decorator === 'string') {
+ 	        		if (typeof validator.decorator === 'string') {
 	        			if (!valid) {
 	        				$(element).addClass(validator.decorator);
 	        			} else {
